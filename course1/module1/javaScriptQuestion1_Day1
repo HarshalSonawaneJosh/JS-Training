@@ -1,0 +1,40 @@
+Question 1. Create a simple HTML file in notepad (do not use VSCode). To this, add some javascript by
+
+------Writing javascript between script tags-------
+
+ANS->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The script element</h1>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello JavaScript!";
+</script> 
+
+</body>
+</html>
+
+
+----Writing javascript in a file and passing that as a src in the script tag-------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript From extarnal</title>
+    
+</head>
+<body>
+    <script src="abc.js"></script>
+</body>
+</html>
+
+ in abc.js file ->
+ 
+ document.write("This javascript is in another file");
+
+
