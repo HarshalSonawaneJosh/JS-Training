@@ -2,11 +2,15 @@
  
 <html>
   <head>
+    <title>script tag in the head tag</title>
     <script>
-      document.getElementById("test").innerHTML="Goodbye World"
+        function run(){
+          document.getElementById("test").innerHTML="Goodbye World"
+        }
     </script>
   </head>
   <body>
     <h1 id="test">Hello World!</h1>
+    <button onclick="run()">Click here to change HTML text</button>
   </body>
 </html>
