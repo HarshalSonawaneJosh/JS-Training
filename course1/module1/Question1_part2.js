@@ -1,0 +1,1 @@
+document.write("This javascript is in another file");
