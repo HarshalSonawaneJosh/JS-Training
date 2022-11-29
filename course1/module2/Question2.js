@@ -71,6 +71,8 @@ console.log(arr3.fill(10));
 const arr4 = [1,2,3,4,5,6,7,8,9,10];
 console.log(arr4.slice(4,9));
 
+const arr5 = [1,2,3,4,5,6,7,8,9,10];
+console.log("Splice returns : ",arr5.splice(2,4),arr5);  //from start index to number of elements
 //reverse() Method.
 console.log(arr4.reverse());
 
