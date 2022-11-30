@@ -7,6 +7,7 @@ console.log(typeof JSON.parse('{"Harshal" : "sonawane"}'))
 
 //for invalid
 //console.log(typeof JSON.parse('{"Harshal" = "sonawane"}'))
+
 console.log( JSON.parse('{"Harshal" : "sonawane"}')) //valid
 console.log(JSON.parse(null))  //valid for null ...and typeof null is also object.
 console.log( JSON.parse(3))   //valid for number
