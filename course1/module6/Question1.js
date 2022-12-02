@@ -65,34 +65,34 @@ let employees = [
 
     //1.Write a function filterByName that accepts a string as a parameter and returns an array with only those objects where the first_name field includes that string.
 
-    // function filterByName(named){
-    //     return employees.filter((element) => (element.first_name === named));
-    // }
+    function filterByName(named){
+        return employees.filter((element) => (element.first_name === named));
+    }
 
-    // let name1 = filterByName("Virgilio");
-    // console.log(name1);
+    let name1 = filterByName("Virgilio");
+    console.log(name1);
 
-    // //2.Use Array.map to return an array of all the email fields.
+    //2.Use Array.map to return an array of all the email fields.
 
-    // function getEmail(employees){
-    //     let email = employees.map(element => (element.email))
-    //     console.log(email);
-    // }
+    function getEmail(employees){
+        let email = employees.map(element => (element.email))
+        console.log(email);
+    }
     
-    // getEmail(employees);
+    getEmail(employees);
     
 
-    // //3.Use Array.sort to return the array sorted in descending order by date_of_birth.
+    //3.Use Array.sort to return the array sorted in descending order by date_of_birth.
    
-    // function getDateOfBirthInDescOrder(a,b){
-    //     var dateA = a.date_of_birth;
-    //     var dateB = b.date_of_birth;
-    //     return dateA < dateB ? 1 : -1;
-    //     //return dateA > dateB ? 1 : -1;     //for ascending we just change the sign(>).
-    // }
+    function getDateOfBirthInDescOrder(a,b){
+        var dateA = a.date_of_birth;
+        var dateB = b.date_of_birth;
+        return dateA < dateB ? 1 : -1;
+        //return dateA > dateB ? 1 : -1;     //for ascending we just change the sign(>).
+    }
 
-    // var a = employees.sort(getDateOfBirthInDescOrder)
-    // console.log("sorted in asc order",a);
+    var a = employees.sort(getDateOfBirthInDescOrder)
+    console.log("sorted in asc order",a);
 
     //4.Write a function getById that accepts a number as a parameter and returns the object where the id is equal to that number.
 
