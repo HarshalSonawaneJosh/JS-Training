@@ -1,3 +1,4 @@
+
 /*
 Take a function that accepts a function as a parameter (also known as callback function). 
 Explore the following cases - what is printed in the console, and what gets returned:
@@ -28,8 +29,4 @@ console.log(test(callbackFunc))
 //console.log(test(callbackFunc())); -> Error coz we are calling the function by passing 5.
 
 //console.log(test(() => callbackFunc()))
-
-
-
-
 
