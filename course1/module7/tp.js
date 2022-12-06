@@ -62,7 +62,8 @@
 //camelize("background-color") == 'backgroundColor';
 //camelize("list-style-image") == 'listStyleImage';
 //amelize("-webkit-transition") == 'WebkitTransition';
-let  str1 =" ";
+
+/*let  str1 =" ";
 let str = "background-color"
 for (let i = 0; i < str.length; i++) 
 {
@@ -76,3 +77,128 @@ for (let i = 0; i < str.length; i++)
    str1 = str1 + str[i];
 }
 console.log(str1)
+*/
+
+// function myF(a, b, c, d, e) {
+//   return a + b + c + d + e;
+// }
+// const sum = [1, 2, 3, 4, 5];
+// console.log(myF(...sum));
+
+/*2. Write a function filterObj that will filter out all the keys of a flat object that have objects or arrays using Object.keys and Object.entries.
+ Example:
+let obj = {
+ a:”Apple”,
+ b:[“Basketball”,”Baseball”],
+ c: {
+  call: “cellphone”
+ },
+ d: “Dog”
+}
+filterObject(obj) //This should return {a:”Apple”, d:”Dog”}
+ */
+
+// let obj = {
+//   a: "Apple",
+//   b: ["Basketball", "Baseball"],
+//   c: {
+//     call: "cellphone",
+//   },
+//   d: "Dog",
+// };
+
+// const arrayOfEntries = Object.entries(obj); //Returns an array of key/values of the enumerable properties of an object
+
+// let newObject = {};
+// arrayOfEntries.forEach((arr) => {
+//   if (typeof arr[1] != "object") {
+//     newObject[`${arr[0]}`] = arr[1];
+//   }
+// });
+// console.log(newObject);
+
+//const arrayOfEntries = Object.entries(obj); //Returns an array of key/values of the enumerable properties of an object
+
+// let obj = {
+//   a: "Apple",
+//   b: ["Basketball", "Baseball"],
+//   c: {
+//     call: "cellphone",
+//   },
+//   d: "Dog",
+// };
+
+// const arrayOfEntries = Object.keys(obj);
+// console.log(arrayOfEntries);
+// let newObject = {};
+// arrayOfEntries.forEach((arr) => {
+//   if (typeof arr[1] != "object") {
+//     newObject[`${arr[0]}`] = arr[1];
+//   }
+// });
+// console.log(newObject);
+
+// objPerson = {
+//   name: "Harshal",
+
+//   objarr: ["student", "man", "woman"],
+
+//   objPerson1: {
+//     name1: "shubhangi",
+//     age1: 23,
+//   },
+//   age: 25,
+// };
+
+// let newoObj = {};
+// Object.keys(objPerson).forEach((arr) => {
+//   if (typeof objPerson[arr] != "object") {
+//     newoObj[arr] = objPerson[arr];
+//   }
+// });
+
+// console.log(newoObj);
+
+// Write a function that sorts an array of objects by the key that is passed in the second argument, and in the order passed as the 3rd argiment.
+
+let users = [
+  {
+    id: 1,
+    first_name: "Nicki",
+    email: "ncrozier0@squarespace.com",
+    date_of_birth: "2009/05/09",
+    gender: "Male",
+  },
+  {
+    id: 2,
+    first_name: "Raychel",
+    email: "rmcgrady1@cpanel.net",
+    date_of_birth: "1996/11/05",
+    gender: "Female",
+  },
+  {
+    id: 3,
+    first_name: "Demetris",
+    email: "dkilshall2@elpais.com",
+    date_of_birth: "2018/12/31",
+    gender: "Male",
+  },
+  {
+    id: 4,
+    first_name: "Amata",
+    email: "abraiden3@canalblog.com",
+    date_of_birth: "2012/05/23",
+    gender: "Female",
+  },
+];
+
+const sort = (users, key, type) => {
+  if (type === "desc") {
+    return users.sort((a, b) => (a[key] < b[key] ? 1 : -1));
+  } else {
+    return users.sort((a, b) => (a[key] > b[key] ? 1 : -1));
+  }
+};
+
+console.log(sort(users, "id", "desc")); //Should return users sorted by id in descending order
+console.log(sort(users, "first_name", "desc")); //Should return users sorted by first_name in ascending order

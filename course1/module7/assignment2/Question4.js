@@ -17,6 +17,10 @@ let userNames = [
     id: 4,
     first_name: "Amata",
   },
+  {
+    id: 5,
+    first_name: "Harsh",
+  },
 ];
 let userEmails = [
   {
@@ -36,8 +40,6 @@ let userEmails = [
     email: "dkilshall2@elpais.com",
   },
 ];
-
-console.log(mergeById(userNames, userEmails));
 
 function mergeById(userNames, userEmails) {
   let mergedArray = new Array();

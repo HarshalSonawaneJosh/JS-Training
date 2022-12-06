@@ -45,9 +45,16 @@ let users = [
 let groupBy = (users, key) => {
   return users.reduce((hash, obj) => {
     //console.log(hash[obj[key]] || []);
-    return Object.assign(hash, {
-      [obj[key]]: (hash[obj[key]] || []).concat(obj),
-    });
+    // return Object.assign(hash, {
+    //   [obj[key]]: (hash[obj[key]] || []).concat(obj),
+    // });
+    if (hash[obj[key]]) {
+      hash[obj[key]].push(obj);
+    } else {
+      hash[obj[key]] = [obj];
+    }
+
+    return hash;
   }, {});
 };
 

@@ -29,17 +29,14 @@ let users = [
     gender: "Female",
   },
 ];
-//sort(users, "first_name", "desc"); //Should return users sorted by first_name in ascending order
-function assort() {
-  users.sort(function (a, b) {
-    return a.first_name.localeCompare(b.first_name);
-  });
-  return users;
-}
-function desort() {
-  return assort().reverse();
-}
-console.log("**************Ascending order***************");
-console.log(assort());
-console.log("**************Descending order***************");
-console.log(desort());
+
+const sort = (users, key, type) => {
+  if (type === "desc") {
+    return users.sort((a, b) => (a[key] < b[key] ? 1 : -1));
+  } else {
+    return users.sort((a, b) => (a[key] > b[key] ? 1 : -1));
+  }
+};
+
+console.log(sort(users, "id", "desc")); //Should return users sorted by id in descending order
+console.log(sort(users, "first_name", "desc")); //Should return users sorted by first_name in ascending order
