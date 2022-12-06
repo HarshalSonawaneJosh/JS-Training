@@ -88,14 +88,16 @@ let employees = [
         var dateA = a.date_of_birth;
         var dateB = b.date_of_birth;
         return dateA < dateB ? 1 : -1;
+        //return dateA > dateB ? 1 : -1;     //for ascending we just change the sign(>).
     }
 
     var a = employees.sort(getDateOfBirthInDescOrder)
-    console.log(a);
+    console.log("sorted in asc order",a);
 
     //4.Write a function getById that accepts a number as a parameter and returns the object where the id is equal to that number.
 
     function getById(number){
-        return employees.filter((emp)=> (emp.id===number))
+        return employees.filter((emp)=> (emp.id===number))   
+        //return employees.find((emp)=> (emp.id===number))      //we can also use find() method to filter our data.
     }
     console.log(getById(4));
