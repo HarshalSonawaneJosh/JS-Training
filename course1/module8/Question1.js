@@ -9,3 +9,5 @@ const func = async (milliseconds) => {
 };
 
 func(3000);
+
+//Hello World;
