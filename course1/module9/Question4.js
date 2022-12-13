@@ -24,23 +24,6 @@ function show(data) {
 
   for (let r of data) {
     tab += `
-    <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
 <tr>
         <td>${r.id}</td>
         <td>${r.email}</td>
@@ -58,10 +41,14 @@ function sortUserByName() {
   show(persons);
 }
 
+//added toLowerCase() method to compare the strings i.e. first name and filtered name.
+
 const filterByName = () => {
-  const searchQuery = document.getElementById("site-search").value;
+  const searchQuery = document
+    .getElementById("site-search")
+    .value.toLowerCase();
   const filteredPerson = persons.filter((p) =>
-    p.first_name.includes(searchQuery)
+    p.first_name.toLowerCase().includes(searchQuery)
   );
   show(filteredPerson);
 };

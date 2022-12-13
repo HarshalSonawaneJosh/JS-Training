@@ -7,3 +7,15 @@
 function abc() {
   document.getElementsByTagName("video")[0].playbackRate = 10;
 }
+
+// OR modified adding event listner
+window.addEventListener(
+  "keypress,f for fast and s for slow ",
+  function (e) {
+    if (e.key === "f")
+      document.getElementsByTagName("video")[0].playbackRate += 0.1;
+    else if (e.key === "s")
+      document.getElementsByTagName("video")[0].playbackRate -= 0.1;
+  },
+  false
+);
