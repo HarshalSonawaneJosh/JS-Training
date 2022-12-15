@@ -1,0 +1,23 @@
+<!-- 1.Visit any page on the browser, and replace the content of all the p tags with the phrase “How’s the Josh?” using Javascript.-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Harshal</p>
+    <p>Sonawane</p>
+    <h1>hello</h1>
+    <script>
+      let myPElements = document.querySelectorAll("p");
+      myPElements.forEach(function (p) {
+        p.textContent = "“How’s the Josh?”";
+      });
+    </script>
+  </body>
+</html>
+
+document.getElementsByTagName("video")[0].playbackRate = 0.1;
