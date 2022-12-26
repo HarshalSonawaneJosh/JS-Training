@@ -29,13 +29,13 @@ const useFetch = (url) => {
 
   return {
     todos,
-    //setTodos,
+    setTodos,
     isPending,
-    //setIsPending,
+    setIsPending,
     error,
-    //setError,
+    setError,
     // newToDo,
-    //setNewTODo,
+    // setNewTODo,
   };
 };
 
