@@ -5,6 +5,7 @@ import Create from "./Create";
 import useFetch from "./useFetch";
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BlogDetails from "./BlogDetails";
 
 function App() {
   const { todos, setTodos, isPending, setIsPending, error, setError } =
@@ -52,6 +53,9 @@ function App() {
                 addTitle={addTitle}
                 resetInputField={resetInputField}
               />
+            </Route>
+            <Route path="/todoDetails/:id">
+              <BlogDetails />
             </Route>
           </Switch>
         </div>
