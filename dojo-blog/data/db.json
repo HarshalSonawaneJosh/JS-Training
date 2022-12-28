@@ -1,0 +1,28 @@
+{
+  "blogs": [
+    {
+      "title": "Opening Party",
+      "body": "Why do we use it ?",
+      "author": "yoshi",
+      "id": 2
+    },
+    {
+      "title": "harshal",
+      "body": "harshal blog",
+      "author": "mario",
+      "id": 3
+    },
+    {
+      "title": "bhushan",
+      "body": "bhshan blog",
+      "author": "mario",
+      "id": 4
+    },
+    {
+      "title": "d bhai",
+      "body": "D bhai blog",
+      "author": "yoshi",
+      "id": 5
+    }
+  ]
+}
