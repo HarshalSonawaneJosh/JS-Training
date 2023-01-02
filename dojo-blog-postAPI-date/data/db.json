@@ -1,0 +1,17 @@
+{
+  "blogs": [
+    {
+      "title": "Opening Party",
+      "body": "Why do we use it ?",
+      "author": "yoshi",
+      "id": 2
+    },
+    {
+      "title": "Harshal party",
+      "body": "Harshal sonawane blog",
+      "author": "yoshi",
+      "date": "1999-06-26",
+      "id": 3
+    }
+  ]
+}
