@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "./useFetch";
 import { useHistory } from "react-router-dom";
+
+import useFetch from "./useFetch";
 
 const Edit = () => {
   const { id } = useParams();
+  const history = useHistory();
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [date, setDate] = useState(""); //new
-
   const [author, setAuthor] = useState("mario");
-
-  const history = useHistory();
 
   const {
     data: blog,
@@ -22,7 +22,6 @@ const Edit = () => {
   const handleEdit = (e) => {
     e.preventDefault();
     const blog = { title, body, author, date };
-
     fetch(`http://localhost:8000/blogs/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -33,6 +32,7 @@ const Edit = () => {
     });
   };
 
+  // useEffect used for storing the blog data in edit scenario
   useEffect(() => {
     if (blog !== null) {
       setTitle(blog.title);
