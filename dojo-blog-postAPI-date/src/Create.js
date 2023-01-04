@@ -6,13 +6,14 @@ const Create = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
   const [date, setDate] = useState(""); //new
+  const [status, setStatus] = useState("completed");
   const [isPending, setIsPending] = useState(false);
 
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = { title, body, author, date };
+    const blog = { title, body, author, date, status };
 
     setIsPending(true);
 
@@ -55,6 +56,11 @@ const Create = () => {
         <select value={author} onChange={(e) => setAuthor(e.target.value)}>
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
+        </select>
+        <label>Status:</label>
+        <select value={status} onChange={(e) => setStatus(e.target.value)}>
+          <option value="completed">completed</option>
+          <option value="pending">pending</option>
         </select>
         {!isPending && <button>Add Blog</button>}
         {isPending && <button disabled>Adding blog...</button>}

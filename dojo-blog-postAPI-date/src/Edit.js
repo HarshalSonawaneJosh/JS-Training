@@ -12,6 +12,7 @@ const Edit = () => {
   const [body, setBody] = useState("");
   const [date, setDate] = useState(""); //new
   const [author, setAuthor] = useState("mario");
+  const [status, setStatus] = useState();
 
   const {
     data: blog,
@@ -21,7 +22,7 @@ const Edit = () => {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    const blog = { title, body, author, date };
+    const blog = { title, body, author, date, status };
     fetch(`http://localhost:8000/blogs/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -39,6 +40,7 @@ const Edit = () => {
       setBody(blog.body);
       setAuthor(body.author);
       setDate(blog.date);
+      setStatus(blog.status);
     }
   }, [blog]);
 
@@ -72,6 +74,11 @@ const Edit = () => {
             <select value={author} onChange={(e) => setAuthor(e.target.value)}>
               <option value="mario">mario</option>
               <option value="yoshi">yoshi</option>
+            </select>
+            <label>Status:</label>
+            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+              <option value="completed">completed</option>
+              <option value="pending">pending</option>
             </select>
             {!isPending && <button>Update Blog</button>}
             {isPending && <button disabled>Updating blog...</button>}
