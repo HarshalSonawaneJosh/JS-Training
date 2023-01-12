@@ -1,17 +1,76 @@
 {
   "blogs": [
     {
-      "title": "Opening Party",
+      "title": "opening Party",
       "body": "Why do we use it ?",
       "author": "yoshi",
-      "id": 2
+      "id": 2,
+      "status": "completed",
+      "date": "2023-01-13"
     },
     {
-      "title": "Harshal party",
+      "title": "harshal party",
       "body": "Harshal sonawane blog",
       "author": "yoshi",
       "date": "1999-06-26",
+      "status": "pending",
       "id": 3
+    },
+    {
+      "title": "harsh",
+      "body": "harsh blog",
+      "author": "yoshi",
+      "date": "2023-01-13",
+      "status": "completed",
+      "id": 6
+    },
+    {
+      "title": "rakesh",
+      "body": "rakesh blogs",
+      "author": "yoshi",
+      "date": "2023-01-13",
+      "status": "pending",
+      "id": 8
+    },
+    {
+      "title": "varun",
+      "body": "varun blog",
+      "author": "yoshi",
+      "date": "2023-01-13",
+      "status": "completed",
+      "id": 9
+    },
+    {
+      "title": "jayesh",
+      "body": "n an x",
+      "author": "mario",
+      "date": "2023-01-27",
+      "status": "pending",
+      "id": 10
+    },
+    {
+      "title": "njnasn",
+      "body": "sd",
+      "author": "mario",
+      "date": "2023-01-21",
+      "status": "completed",
+      "id": 11
+    },
+    {
+      "title": "m nmcmn",
+      "body": "mns",
+      "author": "mario",
+      "date": "2023-01-20",
+      "status": "pending",
+      "id": 12
+    },
+    {
+      "title": "shubham",
+      "body": "shubham blog",
+      "author": "mario",
+      "date": "2023-01-14",
+      "status": "pending",
+      "id": 13
     }
   ]
 }
