@@ -1,40 +1,33 @@
+import { useQuery } from "react-query";
+
 import { Link, useHistory, useParams } from "react-router-dom";
+import { deleteById, getTodoById } from "./services/todoServices";
 import useFetch from "./useFetch";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const {
-    data: blog,
-    isPending,
-    error,
-  } = useFetch("http://localhost:8000/blogs/" + id);
+  const { data, isLoading, error } = useQuery("detail-key", () => {
+    return getTodoById(id);
+  });
 
-  const history = useHistory();
-
-  const handleClick = () => {
-    fetch("http://localhost:8000/blogs/" + blog.id, {
-      method: "DELETE",
-    }).then(() => {
-      history.push("/");
-    });
-  };
-  // const handleEdit = (e) => {
-  //   history.push(`/blogs/edit/${blog.id}`);
-  // };
+  console.log(data);
 
   return (
     <div className="blog-details">
-      {isPending && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      {blog && (
+      {isLoading && <div>Loading...</div>}
+      {data && <div>{error}</div>}
+      {data && (
         <article>
-          <h2>{blog.title}</h2>
-          <p>Written by {blog.author}</p>
-          <div>{blog.body}</div>
-          <div>{blog.date}</div>
-          <button onClick={handleClick}>Delete</button>
+          <h2>{data.title}</h2>
+          <p>Written by {data.author}</p>
+          <div>{data.body}</div>
+          <div>{data.date}</div>
+
           <Link to={`/edit/${id}`}>
             <button>Edit</button>
+          </Link>
+          <Link to={`/delete/${id}`}>
+            <button>Delete</button>
           </Link>
         </article>
       )}

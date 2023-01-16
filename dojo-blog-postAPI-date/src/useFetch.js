@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import { useQuery } from "react-query";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
