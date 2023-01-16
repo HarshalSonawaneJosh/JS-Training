@@ -21,6 +21,7 @@ const Create = () => {
   const { mutate: postTodoMutate, isLoading } = useMutation(postTodo, {
     onSuccess: () => {
       queryClient.invalidateQueries("key");
+      history.push("/");
     },
   });
 

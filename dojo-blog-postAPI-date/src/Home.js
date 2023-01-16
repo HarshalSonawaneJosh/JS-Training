@@ -4,31 +4,21 @@ import useFetch from "./useFetch";
 import { InfinitySpin } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { getTodos } from "./services/todoServices";
+import useToDoList from "./hooks/useToDoList";
 
 const Home = () => {
-  const pageLimit = 3;
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("id");
   const [sortDirection, setSortDirection] = useState("ASC");
   const [status, setStatus] = useState(undefined);
 
-  const { data, isLoading, error } = useQuery(
-    ["key", pageNumber, sort, sortDirection, status, search],
-    () => {
-      if (status === "All") {
-        setStatus(undefined);
-      }
-
-      return getTodos({
-        _page: pageNumber,
-        _limit: pageLimit,
-        _sort: sort,
-        _order: sortDirection,
-        title_like: search,
-        status: status,
-      });
-    }
+  const { data, isLoading, error } = useToDoList(
+    pageNumber,
+    sort,
+    sortDirection,
+    status,
+    search
   );
 
   const previousPage = () => {
