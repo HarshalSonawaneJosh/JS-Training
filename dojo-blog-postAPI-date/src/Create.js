@@ -1,37 +1,44 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import {
+  useQuery,
+  useMutation,
+  QueryClient,
+  useQueryClient,
+} from "react-query";
+import { postTodo } from "./services/todoServices";
 
 const Create = () => {
+  const queryClient = useQueryClient();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
   const [date, setDate] = useState(""); //new
   const [status, setStatus] = useState("completed");
-  const [isPending, setIsPending] = useState(false);
 
   const history = useHistory();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const blog = { title, body, author, date, status };
-
-    setIsPending(true);
-
-    fetch("http://localhost:8000/blogs/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blog),
-    }).then(() => {
-      console.log("new blog added");
-      setIsPending(false);
+  const { mutate: postTodoMutate, isLoading } = useMutation(postTodo, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("key");
       history.push("/");
+    },
+  });
+
+  const handleSubmit = (e) => {
+    postTodoMutate({
+      title: title,
+      body: body,
+      author: author,
+      date: date,
+      status: status,
     });
   };
 
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>Blog title:</label>
         <input
           type="text"
@@ -62,8 +69,8 @@ const Create = () => {
           <option value="completed">completed</option>
           <option value="pending">pending</option>
         </select>
-        {!isPending && <button>Add Blog</button>}
-        {isPending && <button disabled>Adding blog...</button>}
+        {!isLoading && <button onClick={handleSubmit}>Add Blog</button>}
+        {isLoading && <button disabled>Adding blog...</button>}
       </form>
     </div>
   );
