@@ -1,7 +1,7 @@
 //Create a task form with title, description, assignee and due date fields
 import { useFormik } from "formik";
 import signUpSchema from "./schemas/ValidationSchema";
-import SetLoginFormFormik from "./hooks/setLoginFormFormik";
+import useLoginFormFormik from "./hooks/useLoginFormFormik";
 import { useQueryClient } from "react-query";
 import { useHistory } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const initialValues = {
   date: "",
   status: "completed",
 };
-const Input = () => {
+const CreateBlogForm = () => {
   const history = useHistory();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -21,9 +21,10 @@ const Input = () => {
       validationSchema: signUpSchema,
 
       onSubmit: (values, action) => {
-        formSubmitHandler(values);
+        // formSubmitHandler(values);
         action.resetForm();
         console.log(values);
+        mutate(values);
         history.go(-1);
       },
     });
@@ -33,11 +34,11 @@ const Input = () => {
     queryClient.invalidateQueries("key");
   };
 
-  const { mutate } = SetLoginFormFormik(onSuccess);
+  const { mutate } = useLoginFormFormik(onSuccess);
 
-  const formSubmitHandler = (values) => {
-    mutate(values);
-  };
+  // const formSubmitHandler = (values) => {
+  //   mutate(values);
+  // };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -109,4 +110,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default CreateBlogForm;

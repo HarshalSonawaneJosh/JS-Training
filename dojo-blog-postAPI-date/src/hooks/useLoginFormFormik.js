@@ -8,10 +8,10 @@ import {
 } from "react-query";
 import { postTodo } from "../services/todoServices";
 
-const SetLoginFormFormik = ({ onSuccess }) => {
+const useLoginFormFormik = ({ onSuccess }) => {
   return useMutation(postTodo, {
     onSuccess: onSuccess,
   });
 };
 
-export default SetLoginFormFormik;
+export default useLoginFormFormik;

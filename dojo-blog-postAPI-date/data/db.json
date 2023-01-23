@@ -9,22 +9,6 @@
       "id": 6
     },
     {
-      "title": "varun",
-      "body": "varun blog",
-      "author": "yoshi",
-      "date": "2023-01-13",
-      "status": "completed",
-      "id": 9
-    },
-    {
-      "title": "Bhushan",
-      "body": "sjdhfsdgsjaghdfj",
-      "author": "yoshi",
-      "date": "2023-01-13",
-      "status": "pending",
-      "id": 28
-    },
-    {
       "title": "suraj",
       "body": "hjjhbschjas",
       "author": "mario",
@@ -87,6 +71,14 @@
       "date": "2023-01-10",
       "status": "pending",
       "id": 41
+    },
+    {
+      "title": "ram",
+      "body": "ram's blog",
+      "author": "mario",
+      "date": "2023-01-05",
+      "status": "completed",
+      "id": 42
     }
   ]
 }

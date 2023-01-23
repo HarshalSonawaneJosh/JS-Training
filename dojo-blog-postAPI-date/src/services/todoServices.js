@@ -11,7 +11,6 @@ export const patchTodo = (id, body) => {
   return PATCH(`/blogs/${id}`, body);
 };
 export const postTodo = (body) => {
-  console.log("Inside post todo", body);
   return POST("/blogs", body);
 };
 

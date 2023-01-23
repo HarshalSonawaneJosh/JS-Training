@@ -98,3 +98,9 @@
 .form-errors {
   color: red;
 }
+.blog-details button {
+  color: white;
+  background: red;
+  border-radius: 8px;
+  cursor: pointer;
+}
