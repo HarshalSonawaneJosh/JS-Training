@@ -9,6 +9,7 @@ import BlogDetails from "./BlogDetails";
 import NotFound from "./notFound";
 import Edit from "./Edit";
 import Delete from "./Delete";
+import CreateBlogForm from "./CreateBlogForm";
 
 //Initializing the client.
 const queryClient = new QueryClient();
@@ -23,8 +24,11 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/create">
+              {/* <Route path="/create">
                 <Create />
+              </Route> */}
+              <Route path="/create">
+                <CreateBlogForm />
               </Route>
               <Route path="/blogs/:id">
                 <BlogDetails />

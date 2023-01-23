@@ -65,7 +65,8 @@
 
 .create input,
 .create textarea,
-.create select {
+.create select,
+.blog-details input {
   width: 100%;
   padding: 6px, 10px;
   margin: 10px, 0;
@@ -84,7 +85,7 @@
   margin-top: 40px;
 }
 
-.blog-details button {
+.input-button {
   background: red;
   color: #fff;
   border: 0;
@@ -92,4 +93,14 @@
   border-radius: 8px;
   cursor: pointer;
   margin-top: 40px;
+}
+
+.form-errors {
+  color: red;
+}
+.blog-details button {
+  color: white;
+  background: red;
+  border-radius: 8px;
+  cursor: pointer;
 }

@@ -12,13 +12,14 @@ const Home = () => {
   const [sort, setSort] = useState("id");
   const [sortDirection, setSortDirection] = useState("ASC");
   const [status, setStatus] = useState(undefined);
+  const [trigger, setTrigger] = useState("");
 
   const { data, isLoading, error } = useToDoList(
     pageNumber,
     sort,
     sortDirection,
     status,
-    search
+    trigger
   );
 
   const previousPage = () => {
@@ -27,6 +28,10 @@ const Home = () => {
 
   const nextPage = () => {
     setPageNumber(pageNumber + 1);
+  };
+
+  const triggerHandler = () => {
+    setTrigger(search);
   };
 
   console.log("blogs", data);
@@ -49,6 +54,7 @@ const Home = () => {
           setStatus={setStatus}
           search={search}
           setSearch={setSearch}
+          triggerHandler={triggerHandler}
         />
       )}
       <button onClick={previousPage} disabled={pageNumber === 1}>
