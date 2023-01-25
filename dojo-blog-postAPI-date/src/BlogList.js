@@ -13,6 +13,7 @@ const BlogList = ({
   search,
   setSearch,
   triggerHandler,
+  searchTitle,
 }) => {
   return (
     <div className="blog-list">
@@ -25,7 +26,7 @@ const BlogList = ({
         placeholder="Search todos..."
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button onClick={triggerHandler}>Search</button>
+      <button onClick={() => triggerHandler(searchTitle)}>Search</button>
       <br />
       <label>Sort : </label>
       <select

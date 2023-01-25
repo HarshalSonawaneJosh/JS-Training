@@ -1,4 +1,23 @@
-// import Home from "../Home";
+// // import Home from "../Home";
+// import { getTodos } from "../services/todoServices";
+// import { useQuery } from "react-query";
+
+// const useToDoList = (blogState) => {
+//   const pageLimit = 15;
+
+//   return useQuery(["key", blogState], () => {
+//     return getTodos({
+//       _page: blogState.pageNumber,
+//       _limit: blogState.pageLimit,
+//       _sort: blogState.sort,
+//       _order: blogState.sortDirection,
+//       title_like: blogState.search,
+//       status: blogState.status,
+//     });
+//   });
+// };
+
+import Home from "../Home";
 import { getTodos } from "../services/todoServices";
 import { useQuery } from "react-query";
 

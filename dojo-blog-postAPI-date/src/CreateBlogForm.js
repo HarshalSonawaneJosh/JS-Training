@@ -21,7 +21,6 @@ const CreateBlogForm = () => {
       validationSchema: signUpSchema,
 
       onSubmit: (values, action) => {
-        // formSubmitHandler(values);
         action.resetForm();
         console.log(values);
         mutate(values);
@@ -35,10 +34,6 @@ const CreateBlogForm = () => {
   };
 
   const { mutate } = useLoginFormFormik(onSuccess);
-
-  // const formSubmitHandler = (values) => {
-  //   mutate(values);
-  // };
 
   return (
     <form onSubmit={handleSubmit}>

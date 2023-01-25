@@ -5,36 +5,106 @@ import { InfinitySpin } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { getTodos } from "./services/todoServices";
 import useToDoList from "./hooks/useToDoList";
+import { useReducer } from "react";
+
+const BLOG_ACTIONS = {
+  SEARCH: "SEARCH",
+  SET_PAGE_NUMBER: "SET_PAGE_NUMBER",
+  SET_ORDER: "SET_ORDER",
+  SET_SORT: "SET_SORT",
+  SET_STATUS: "SET_STATUS",
+  SET_TRIGGERDATA: "SET_TRIGGERDATA",
+};
+
+const initialState = {
+  search: "",
+  pageNumber: 1,
+  sort: "id",
+  sortDirection: "ASC",
+  status: "All",
+  pageLimit: 3,
+  triggerData: "",
+};
+
+const todoReducer = (state, Action) => {
+  switch (Action.type) {
+    case BLOG_ACTIONS.SEARCH:
+      return {
+        ...state,
+        search: Action.payload,
+      };
+    case BLOG_ACTIONS.SET_PAGE_NUMBER:
+      return { ...state, pageNumber: Action.payload };
+
+    case BLOG_ACTIONS.SET_ORDER:
+      return { ...state, sortDirection: Action.payload };
+
+    case BLOG_ACTIONS.SET_SORT:
+      return { ...state, sort: Action.payload };
+
+    case BLOG_ACTIONS.SET_STATUS:
+      return { ...state, status: Action.payload };
+
+    case BLOG_ACTIONS.SET_TRIGGERDATA:
+      return { ...state, triggerData: Action.payload };
+
+    default:
+      return state;
+  }
+};
 
 const Home = () => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("id");
-  const [sortDirection, setSortDirection] = useState("ASC");
-  const [status, setStatus] = useState(undefined);
-  const [trigger, setTrigger] = useState("");
+  const [state, dispatch] = useReducer(todoReducer, initialState);
 
-  const { data, isLoading, error } = useToDoList(
-    pageNumber,
-    sort,
-    sortDirection,
-    status,
-    trigger
+  const { data, isLoading, error } = useQuery(
+    [
+      "key",
+      state.pageNumber,
+      state.sort,
+      state.status,
+      state.sortDirection,
+      state.triggerData,
+    ],
+    () => {
+      if (state.status === "All") {
+        setStatus(undefined);
+      }
+      return getTodos({
+        _page: state.pageNumber,
+        _limit: state.pageLimit,
+        _sort: state.sort,
+        _order: state.sortDirection,
+        title_like: state.triggerData,
+        status: state.status,
+      });
+    }
   );
 
-  const previousPage = () => {
-    setPageNumber(pageNumber - 1);
+  const handlePageChange = (value) => {
+    dispatch({ type: BLOG_ACTIONS.SET_PAGE_NUMBER, payload: value });
   };
 
-  const nextPage = () => {
-    setPageNumber(pageNumber + 1);
+  const setSearch = (value) => {
+    console.log("In setSearch");
+    dispatch({ type: BLOG_ACTIONS.SEARCH, payload: value });
   };
 
-  const triggerHandler = () => {
-    setTrigger(search);
+  const setSortDirection = (value) => {
+    dispatch({ type: BLOG_ACTIONS.SET_ORDER, payload: value });
   };
 
-  console.log("blogs", data);
+  const setSort = (value) => {
+    dispatch({ type: BLOG_ACTIONS.SET_SORT, payload: value });
+  };
+
+  const setStatus = (value) => {
+    dispatch({ type: BLOG_ACTIONS.SET_STATUS, payload: value });
+  };
+  const triggerHandler = (value) => {
+    dispatch({ type: BLOG_ACTIONS.SET_TRIGGERDATA, payload: value });
+  };
+
+  // console.log("blogs", data);
 
   return (
     <div className="home">
@@ -45,22 +115,28 @@ const Home = () => {
       {data && (
         <BlogList
           data={data}
+          searchTitle={state.search}
           title="All tags!"
-          sort={sort}
+          sort={state.sort}
           setSort={setSort}
-          sortDirection={sortDirection}
+          sortDirection={state.sortDirection}
           setSortDirection={setSortDirection}
-          status={status}
+          status={state.status}
           setStatus={setStatus}
-          search={search}
+          search={state.search}
           setSearch={setSearch}
           triggerHandler={triggerHandler}
         />
       )}
-      <button onClick={previousPage} disabled={pageNumber === 1}>
+      <button
+        onClick={() => handlePageChange(state.pageNumber - 1)}
+        disabled={state.pageNumber === 1}
+      >
         Prev
       </button>
-      <button onClick={nextPage}>Next</button>
+      <button onClick={() => handlePageChange(state.pageNumber + 1)}>
+        Next
+      </button>
     </div>
   );
 };
