@@ -4,7 +4,6 @@ import useFetch from "./useFetch";
 import { InfinitySpin } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { getTodos } from "./services/todoServices";
-import useToDoList from "./hooks/useToDoList";
 import { useReducer } from "react";
 
 const BLOG_ACTIONS = {
