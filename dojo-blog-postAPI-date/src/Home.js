@@ -21,7 +21,7 @@ const initialState = {
   sort: "id",
   sortDirection: "ASC",
   status: "All",
-  pageLimit: 3,
+  pageLimit: 15,
   triggerData: "",
 };
 
