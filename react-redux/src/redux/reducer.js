@@ -18,10 +18,10 @@ export const reducer = (state = initialState, action) => {
     case ACTIONS.EDIT_USER:
       console.log("reducer", action.payload);
       let data = state.details.map((user) => {
-        console.log(user.id, action.payload.id);
-        if (user.id == action.payload.id) {
+        console.log(user.id, action.payload.data);
+        if (user.id == action.payload.data.id) {
           console.log("EDIT", action.payload);
-          return { ...user, ...action.payload };
+          return { ...user, ...action.payload.data };
         } else {
           return user;
         }
