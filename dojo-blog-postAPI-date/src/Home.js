@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import BlogList from "./BlogList";
-import useFetch from "./useFetch";
 import { InfinitySpin } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { getTodos } from "./services/todoServices";

@@ -54,6 +54,7 @@ const Edit = () => {
             <input
               type="text"
               value={title}
+              placeholder="name"
               onChange={(e) => setTitle(e.target.value)}
               required
             />
@@ -61,22 +62,32 @@ const Edit = () => {
             <textarea
               required
               value={body}
+              placeholder="body"
               onChange={(e) => setBody(e.target.value)}
             ></textarea>
             <label>Blog date:</label> {/* New */}
             <input
               type="date"
               value={date}
+              placeholder="date"
               onChange={(e) => setDate(e.target.value)}
               required
             />
             <label>Blog author:</label>
-            <select value={author} onChange={(e) => setAuthor(e.target.value)}>
+            <select
+              value={author}
+              placeholder="author"
+              onChange={(e) => setAuthor(e.target.value)}
+            >
               <option value="mario">mario</option>
               <option value="yoshi">yoshi</option>
             </select>
             <label>Status:</label>
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <select
+              value={status}
+              placeholder="status"
+              onChange={(e) => setStatus(e.target.value)}
+            >
               <option value="completed">completed</option>
               <option value="pending">pending</option>
             </select>
