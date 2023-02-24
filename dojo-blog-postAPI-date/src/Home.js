@@ -126,12 +126,16 @@ const Home = () => {
         />
       )}
       <button
+        data-testid="prev-button"
         onClick={() => handlePageChange(state.pageNumber - 1)}
         disabled={state.pageNumber === 1}
       >
         Prev
       </button>
-      <button onClick={() => handlePageChange(state.pageNumber + 1)}>
+      <button
+        data-testid="next-button"
+        onClick={() => handlePageChange(state.pageNumber + 1)}
+      >
         Next
       </button>
     </div>

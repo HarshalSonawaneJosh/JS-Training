@@ -56,7 +56,7 @@ const CreateBlogForm = () => {
         <input
           type="body"
           name="body"
-          placeholder="Body"
+          placeholder="body"
           value={values.body}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -67,7 +67,12 @@ const CreateBlogForm = () => {
       </div>
       <div className="blog-details">
         <label>Blog author: </label>
-        <select name="author" value={values.author} onChange={handleChange}>
+        <select
+          name="author"
+          placeholder="author"
+          value={values.author}
+          onChange={handleChange}
+        >
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
         </select>
@@ -78,7 +83,7 @@ const CreateBlogForm = () => {
         <input
           type="date"
           name="date"
-          placeholder="Date"
+          placeholder="date"
           value={values.date}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -89,7 +94,12 @@ const CreateBlogForm = () => {
       </div>
       <div className="blog-details">
         <label>Status:</label>
-        <select name="status" value={values.status} onChange={handleChange}>
+        <select
+          name="status"
+          value={values.status}
+          placeholder="status"
+          onChange={handleChange}
+        >
           <option value="completed">completed</option>
           <option value="pending">pending</option>
         </select>
