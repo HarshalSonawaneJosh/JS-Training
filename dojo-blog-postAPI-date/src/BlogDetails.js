@@ -10,8 +10,6 @@ const BlogDetails = () => {
     return getTodoById(id);
   });
 
-  console.log(data);
-
   return (
     <div className="blog-details">
       {isLoading && <div>Loading...</div>}

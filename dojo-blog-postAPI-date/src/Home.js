@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import BlogList from "./BlogList";
-import useFetch from "./useFetch";
 import { InfinitySpin } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { getTodos } from "./services/todoServices";
@@ -128,12 +126,16 @@ const Home = () => {
         />
       )}
       <button
+        data-testid="prev-button"
         onClick={() => handlePageChange(state.pageNumber - 1)}
         disabled={state.pageNumber === 1}
       >
         Prev
       </button>
-      <button onClick={() => handlePageChange(state.pageNumber + 1)}>
+      <button
+        data-testid="next-button"
+        onClick={() => handlePageChange(state.pageNumber + 1)}
+      >
         Next
       </button>
     </div>

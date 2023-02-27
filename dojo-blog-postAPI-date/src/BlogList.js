@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 
-const BlogList = ({
+export const BlogList = ({
   data,
   title,
   sort,
@@ -53,7 +53,7 @@ const BlogList = ({
         <option value={"pending"}>pending</option>
       </select>
 
-      {data.map((blog) => (
+      {data?.map((blog) => (
         <div className="blog-preview" key={blog.id}>
           <Link to={`/blogs/${blog.id}`}>
             <h2>{blog.title}</h2>
